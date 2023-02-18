@@ -1,6 +1,6 @@
 import express from "express";
 import { saveImgDataToDb } from "../db/database.mjs";
-import { runCompletion } from "../ai/handleCreatePainting.mjs";
+import { handleCreatePainting } from "../ai/handleCreatePainting.mjs";
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
 
   if (prompt) {
     const date = new Date().toISOString();
-    const imgData = await runCompletion(prompt);
+    const imgData = await handleCreatePainting(prompt);
     res.render("pages/index", { imgSrc: imgData.imgSrc });
     saveImgDataToDb(prompt, date, imgData);
   }
