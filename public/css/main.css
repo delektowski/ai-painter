@@ -10,7 +10,7 @@
 }
 
 .title {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
     font-weight: 100;
     text-transform: uppercase;
     text-align: center;
@@ -29,3 +29,16 @@
     padding-inline: .5rem;
     padding-block: .5rem;
 }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 512px) {
+    .image-painting {
+        width: 96vw;
+    }
+}
+
+
