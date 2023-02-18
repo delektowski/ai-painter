@@ -133,4 +133,5 @@ dist
 .DS_Store
 .idea/
 paintings.db
+public/img
 
