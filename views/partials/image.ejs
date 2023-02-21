@@ -1,5 +1,8 @@
 <div class="image-container">
     <% if(imgSrc){ %>
-        <img class="image-painting" src="<%= imgSrc %>" alt="ai generated image">
+        <div>
+            <img class="image-painting" src="<%= imgSrc %>" alt="ai generated image">
+            <p class="img-title"><%= prompt %></p>
+        </div>
     <% } %>
 </div>

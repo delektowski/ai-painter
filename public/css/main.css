@@ -38,7 +38,7 @@
     color: #222222;
     cursor: pointer;
     display: inline-block;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     font-size: 1rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -51,7 +51,7 @@
     text-align: center;
     text-decoration: none;
     touch-action: manipulation;
-    transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+    transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
     user-select: none;
     -webkit-user-select: none;
     width: auto;
@@ -78,6 +78,14 @@
 .image-container {
     display: flex;
     justify-content: center;
+}
+
+.img-title {
+    color: grey;
+    font-style: oblique;
+    text-transform: capitalize;
+    padding-inline: .5rem;
+    margin-block-start: .5rem;
 }
 
 @media screen and (max-width: 512px) {

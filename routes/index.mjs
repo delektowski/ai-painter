@@ -9,12 +9,12 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  let prompt = req.body.prompt;
+  let prompt = req.body?.prompt || "";
 
   if (prompt) {
     const date = new Date().toISOString();
     const imgData = await handleCreatePainting(prompt);
-    res.render("pages/index", { imgSrc: imgData.imgSrc });
+    res.render("pages/index", { imgSrc: imgData.imgSrc, prompt });
     saveImgDataToDb(prompt, date, imgData);
   }
 });
