@@ -132,6 +132,10 @@ body.loading .modal {
 }
 
 @media screen and (max-width: 512px) {
+    .main-container {
+        margin-block-start: .5rem;
+    }
+
     .image-painting {
         width: 96vw;
     }
