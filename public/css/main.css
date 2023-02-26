@@ -136,6 +136,10 @@ body.loading .modal {
         margin-block-start: .5rem;
     }
 
+    .prompt-container {
+        margin-block-end: 1rem;
+    }
+
     .image-painting {
         width: 96vw;
     }
