@@ -1,9 +1,16 @@
 <div class="prompt-container">
-    <h1 class="title">Generuj obraz</h1>
+    <h1 class="title">Stwórz obraz...</h1>
     <form method="POST" action="/" class="form-container">
-        <label>
-            <textarea class="prompt-input"  name="prompt" ><%= prompt %></textarea>
-        </label>
-        <button class="submit-button" type="submit" >Wyślij</button>
+        <textarea class="prompt-input" name="prompt" placeholder="Opisz obraz..."><%= prompt %></textarea>
+        <textarea class="prompt-input" name="promptPainterName"
+                  placeholder="Nazwisko malarza, którego styl ma być naśladowany; np. Zdzisław Beksiński"><%= promptPainterName %></textarea>
+        <button onclick="setModalSpinner()" id="myButton" class="submit-button" type="submit">Wyślij</button>
     </form>
 </div>
+<div class="modal"></div>
+<script>
+    function setModalSpinner() {
+        const but = document.querySelector('body');
+        but.classList.add("loading")
+    }
+</script>

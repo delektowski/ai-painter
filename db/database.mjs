@@ -10,21 +10,22 @@ const db = new sqlite3.Database("./db/paintings.db", (err) => {
 export function handlePaintingsTable() {
     db.serialize(() => {
         db.run(
-            "CREATE TABLE IF NOT EXISTS paintings ( id INTEGER PRIMARY KEY, title TEXT, date varchar(40), imgSrc TEXT)"
+            "CREATE TABLE IF NOT EXISTS paintings ( id INTEGER PRIMARY KEY, prompt TEXT, promptPainterName TEXT, date varchar(40), imgSrc TEXT)"
         );
     });
 }
 
-export function saveImgDataToDb(prompt,date,imgData) {
-    db.run(
-        `INSERT INTO paintings (title,date,imgSrc) VALUES (?,?,?)`,
-        [prompt, date, imgData.filepath],
-        function (err) {
-            if (err) {
-                return console.log(err.message);
-            }
-            console.log(`A row has been inserted with rowId ${this.lastID}`);
-        }
-    );
+export function saveImgDataToDb(prompt, promptPainterName, date, imgData) {
+    return new Promise((resolve, reject) => {
+        db.run(
+            `INSERT INTO paintings (prompt,promptPainterName,date,imgSrc) VALUES (?,?,?,?)`,
+            [prompt, promptPainterName, date, imgData.fileSrc], function (err) {
+                if (err) {
+                    return reject(err)
+                }
+                console.log(`A row has been inserted with rowId ${this.lastID}`);
+                return resolve(imgData.fileSrc)
+            })
+    })
 }
 
