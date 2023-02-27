@@ -3,7 +3,7 @@ import router from "./routes/index.mjs";
 import { handlePaintingsTable } from "./db/database.mjs";
 
 const app = express();
-const PORT = 7070;
+const PORT = 7777;
 handlePaintingsTable();
 
 app.use(express.static("public"));
