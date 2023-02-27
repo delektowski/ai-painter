@@ -1,0 +1,27 @@
+<div class="last-images-container">
+    <% if(lastImages.length > 0){ %>
+        <h2 class="title">ostatnie obrazy</h2>
+        <% lastImages.forEach( function(img) { %>
+            <div onclick="showClickedImage('<%= (img.imgSrc) %>', '<%= (img.prompt) %>')"
+                 class="last-images-data-container">
+                <a href="#start">
+                    <img class="last-images" src="<%= img.imgSrc %>" alt="ai generated image">
+                </a>
+                <div>
+                    <p class="last-images-title">tytuł: <%= img.prompt %></p>
+                    <p class="last-images-title">malarz: <%= img.promptPainterName %></p>
+                    <p class="last-images-title">data: <%= new Date(img.date).toLocaleString('pl-PL') %></p>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+</div>
+
+<script>
+    function showClickedImage(imgSrc, title) {
+        const imagePainting = document.querySelector(".image");
+        const imageTitle = document.querySelector(".img-title");
+        imagePainting.src = imgSrc;
+        imageTitle.innerText = title;
+    }
+</script>

@@ -1,22 +1,25 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .main-container {
-    --text-color: #717171;
-    margin-block-start: 1.5rem;
-    margin-block-end: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 100;
-}
-
-.prompt-container {
-    margin-block-end: 2rem;
+    margin-block-start: 1.5rem;
+    margin-block-end: 1.5rem;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
 .title {
     font-size: 1.2rem;
-    font-weight: 100;
+    font-weight: 300;
     text-transform: uppercase;
     text-align: center;
+}
+
+.prompt-container {
+    margin-block-end: 2rem;
 }
 
 .form-container {
@@ -25,13 +28,14 @@
     gap: .5rem;
 }
 
-
 .prompt-input {
     inline-size: 20rem;
     block-size: 3rem;
     resize: none;
     padding-inline: .5rem;
     padding-block: .5rem;
+    text-transform: uppercase;
+    color: grey;
 }
 
 .prompt-input::placeholder {
@@ -90,29 +94,55 @@
 .img-title {
     color: grey;
     font-style: oblique;
-    text-transform: capitalize;
+    font-size: .9rem;
+    text-transform: uppercase;
     padding-inline: .2rem;
     margin-block-start: .5rem;
     margin-block-end: .5rem;
 }
 
-/*SPINNER*/
-.modal {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 )
-    url('/gif/spinner.gif')
-    50% 50%
-    no-repeat;
+.last-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+.last-images-data-container {
+    inline-size: 32rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+
+}
+
+.last-images {
+    inline-size: 6rem;
+}
+
+.last-images-title {
+    color: grey;
+    font-size: .7rem;
+    font-style: oblique;
+    text-transform: uppercase;
+}
+
+/*SPINNER START*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .8) url('/gif/spinner.gif') 50% 50% no-repeat;
+}
+
 body.loading {
     overflow: hidden;
 }
+
 body.loading .modal {
     display: block;
 }
@@ -131,6 +161,10 @@ body.loading .modal {
     }
 }
 
+/*SPINNER END*/
+
+
+/*RWD*/
 @media screen and (max-width: 512px) {
     .main-container {
         margin-block-start: 0;
@@ -138,18 +172,27 @@ body.loading .modal {
     }
 
     .title {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .prompt-container {
         margin-block-end: 1rem;
     }
 
-    .image-painting {
-        width: 96vw;
-    }
 
     .image-container {
+        inline-size: 96vw;
+    }
+
+    .image {
+        inline-size: 96vw;
+    }
+
+    .last-images-container {
+        inline-size: 96vw;
+    }
+
+    .last-images-data-container {
         inline-size: 96vw;
     }
 }

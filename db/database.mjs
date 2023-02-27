@@ -29,3 +29,18 @@ export function saveImgDataToDb(prompt, promptPainterName, date, imgData) {
     })
 }
 
+export function getLastNItems(itemsNumber) {
+      return new Promise((resolve, reject) => {
+          db.all(
+              `SELECT * FROM paintings ORDER BY id DESC LIMIT ?`,
+              [itemsNumber],
+              function (err, rows) {
+               if(err) {
+                 return reject(err)
+               }
+               return resolve(rows)
+              }
+          )
+      })
+}
+

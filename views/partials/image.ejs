@@ -1,8 +1,15 @@
 <div class="image-container">
     <% if(imgSrc){ %>
         <div>
-            <img class="image-painting" src="<%= imgSrc %>" alt="ai generated image">
+            <img class="image" src="<%= imgSrc %>" alt="ai generated image">
             <p class="img-title"><%= prompt %></p>
         </div>
+    <% } else{ %>
+        <% if(lastImages.length > 0){ %>
+            <div>
+                <img class="image" src="<%= lastImages[0].imgSrc %>" alt="ai generated image">
+                <p class="img-title"><%= lastImages[0].prompt %></p>
+            </div>
+        <% } %>
     <% } %>
 </div>
